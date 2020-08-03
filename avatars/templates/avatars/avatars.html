@@ -1,0 +1,35 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <title>🍓File upload example</title>
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <script src="{% static "avatars/upload.js" %}"></script>
+        <script src="{% static "avatars/avatars.js" %}"></script>
+    </head>
+
+    <body style="background-color: #dae4e9;">
+        <div class="p-8 flex w-full items-center flex-col justify-center bg-grey-lighter">
+            <h1 class="text-2xl block text-gray-800 text-center mb-3">
+                Upload
+            </h1>
+            <label
+                class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue font-bold rounded-lg shadow-lg tracking-wide uppercase cursor-pointer hover:bg-blue-300 transition-colors duration-200 ease-in-out hover:text-white">
+                <span class="text-base leading-normal">Select a file</span>
+                <input type="file" class="hidden js-image-upload" />
+            </label>
+            <h1 class="text-2xl mt-5 block text-gray-800 text-center mb-3">
+                Avatars uploaded
+            </h1>
+            <p class="js-loading-avatars text-gray-600">Loading...</p>
+            <p class="hidden js-nothing-uploaded text-gray-600">Nothing here...</p>
+            <div class="max-w-3xl w-full hidden js-avatars-grid-container">
+                <div class="grid grid-cols-3 mb-4 w-full gap-3 js-avatars-grid"></div>
+            </div>
+
+            <template id="js-single-avatar-template">
+                <div class="w-full bg-center bg-no-repeat bg-cover bg-gray-400 rounded-lg" style="padding-bottom: 80%; background-image: url(https://source.unsplash.com/random)"></div>
+            </template>
+        </div>
+    </body>
+</html>
